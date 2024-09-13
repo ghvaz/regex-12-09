@@ -1,10 +1,11 @@
-/* 
-Livros
-{
-  "title": "Livro Exemplo",
-  "author": "Autor Exemplo",
-  "year": 2021,
-  "genre": "Ficção"
-}
-*/
+const ctrl = require("../controllers/livros.js")
+const express = require("express")
+const rota = express.Router()
 
+
+rota.get("/", ctrl.index)
+rota.post("/", ctrl.store)  
+rota.delete("/:id", ctrl.destroy)
+rota.put("/:id", ctrl.update)
+
+module.exports = rota
